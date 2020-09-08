@@ -1,29 +1,27 @@
 import com.opencsv.CSVWriter;
-import net.bytebuddy.asm.Advice;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
 
+
+
 //        System.setProperty("webdriver.gecko.driver", "drivers/geckodriver.exe");
-        System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
+//        System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
 
 //        WebDriver driverFF = new FirefoxDriver();
+
         WebDriver driverChrome = new ChromeDriver();
 
-//        driverFF.get("https://market.yandex.ru");
+
 
         driverChrome.get("https://market.yandex.ru");
         driverChrome.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -39,9 +37,6 @@ public class Main {
         driverChrome.findElement(By.xpath("//input[@name='passwd']")).submit();
 
         driverChrome.switchTo().window(handles.get(0));
-
-//        WebDriverWait wait = new WebDriverWait(driverChrome, 30);
-//        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[1]/div[@data-zone-name='category-link']/div/a")));
 
         List<WebElement> popularCategories = driverChrome.findElements(By.xpath("//div[1]/div[@data-zone-name='category-link']/div/a"));
 
@@ -76,8 +71,7 @@ public class Main {
         }
         driverChrome.findElement(By.xpath("//*[.='Выйти']")).click();
 
+        driverChrome.quit();
     }
-
-//        driverChrome.quit();
 }
 
