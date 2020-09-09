@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class LoginPage extends BasePage {
 
+    private ArrayList<String> handles;
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
@@ -13,7 +14,7 @@ public class LoginPage extends BasePage {
 
     public void open() {
         driver.findElement(By.xpath("//span[.='Войти']")).click();
-        ArrayList<String> handles = new ArrayList<String>(driver.getWindowHandles());
+        handles = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(handles.get(1));
     }
 
@@ -23,8 +24,6 @@ public class LoginPage extends BasePage {
     }
     public void enterPassword(String password) {
         driver.findElement(By.xpath("//input[@name='passwd']")).sendKeys(password);
-        driver.findElement(By.xpath("//input[@name='passwd']")).submit();
-
     }
 
     public boolean atPage() {
@@ -32,6 +31,16 @@ public class LoginPage extends BasePage {
             return true;
         } else {
             return false;
+        }
+    }
+
+    public void submit() {
+        driver.findElement(By.xpath("//input[@name='passwd']")).submit();
+        driver.switchTo().window(handles.get(0));
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 

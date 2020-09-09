@@ -5,8 +5,6 @@ import utils.PropertyLoader;
 
 public class MainPage extends BasePage {
 
-//    private WebDriver driver;
-
     public MainPage(WebDriver driver) {
         this.driver = driver;
     }

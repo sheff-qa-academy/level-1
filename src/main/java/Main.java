@@ -38,6 +38,8 @@ public class Main {
 
         driverChrome.switchTo().window(handles.get(0));
 
+        //
+
         List<WebElement> popularCategories = driverChrome.findElements(By.xpath("//div[1]/div[@data-zone-name='category-link']/div/a"));
 
         driverChrome.get(popularCategories.get(0).getAttribute("href"));
