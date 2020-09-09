@@ -2,3 +2,7 @@
 /.idea
 /target
 /data.csv
+/drivers/chromedriver.exe
+/drivers/chromedriver
+drivers/geckodriver.exe
+drivers/geckodriver
