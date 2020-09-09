@@ -11,6 +11,7 @@ public class TestBase {
     @BeforeClass
     public void init() {
         app = new ApplicationManager();
+
     }
 
     @AfterSuite

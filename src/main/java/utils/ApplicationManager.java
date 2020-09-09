@@ -14,7 +14,7 @@ public class ApplicationManager {
 
         baseUrl = PropertyLoader.getProperty("site.url");
 
-        driver = BrowserFactory.getInstance(PropertyLoader.getProperty("browser.name"));
+        driver = BrowserFactory.getInstance(PropertyLoader.getProperty("browser.name"), PropertyLoader.getProperty("platform.name"));
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
     }

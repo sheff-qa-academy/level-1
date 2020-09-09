@@ -5,7 +5,8 @@ import pages.TestBase;
 
 public class CategoriesTestCase extends TestBase {
 
-    private OpenMainPage openMainPage;
+    private OpenMainPage openMainPage = new OpenMainPage(app.getWebDriver());
+
 
     @Test
     public void categoriesTest() {
