@@ -5,12 +5,14 @@ import utils.PropertyLoader;
 
 public class MainPage extends BasePage {
 
+    String url = PropertyLoader.getProperty("site.url");
+
     public MainPage(WebDriver driver) {
         this.driver = driver;
     }
 
     public void open() {
-        driver.get(PropertyLoader.getProperty("site.url"));
+        driver.get(url);
     }
 
     public boolean atPage() {
@@ -19,5 +21,9 @@ public class MainPage extends BasePage {
         } else {
             return false;
         }
+    }
+
+    public String getURL() {
+        return url;
     }
 }

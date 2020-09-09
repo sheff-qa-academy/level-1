@@ -13,5 +13,4 @@ public abstract class BasePage {
     public String getTitle() {
         return driver.getTitle();
     }
-
 }

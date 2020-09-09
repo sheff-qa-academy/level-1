@@ -9,10 +9,11 @@ import java.util.List;
 
 public class ElementsCollection {
 
-    WebDriver driver;
+    private WebDriver driver;
 
     private List<WebElement> elements;
     private List<WebElement> displayedElements = new ArrayList<>();
+    private int size = 0;
 
     public ElementsCollection(WebDriver driver) {
         this.driver = driver;
@@ -20,6 +21,7 @@ public class ElementsCollection {
 
     public void setElements(String path) {
         elements = driver.findElements(By.xpath(path));
+        size = elements.size();
 
     }
 
@@ -31,7 +33,10 @@ public class ElementsCollection {
         }
 
         return displayedElements;
+    }
 
+    public List<WebElement> getAllElements() {
+        return elements;
     }
 
     public WebElement getRandomDisplayedElement() {
@@ -55,5 +60,9 @@ public class ElementsCollection {
 
     public WebElement getElement(int index) {
         return elements.get(index);
+    }
+
+    public int getSize() {
+        return this.size;
     }
 }

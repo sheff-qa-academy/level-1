@@ -38,13 +38,13 @@ public class Main {
 
         driverChrome.switchTo().window(handles.get(0));
 
-        //
-
         List<WebElement> popularCategories = driverChrome.findElements(By.xpath("//div[1]/div[@data-zone-name='category-link']/div/a"));
 
         driverChrome.get(popularCategories.get(0).getAttribute("href"));
 
         driverChrome.get("https://market.yandex.ru");
+
+        //
 
         if (driverChrome.findElements(By.xpath("//span[.='Каталог товаров']/../parent::button")).size() > 0) {
             WebElement ele = driverChrome.findElement(By.xpath("//span[.='Каталог товаров']/../parent::button"));
