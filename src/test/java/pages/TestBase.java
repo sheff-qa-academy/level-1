@@ -1,7 +1,9 @@
 package pages;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
 import utils.ApplicationManager;
 
 public class TestBase {

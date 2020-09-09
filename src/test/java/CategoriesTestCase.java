@@ -1,19 +1,20 @@
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.OpenMainPage;
+import pages.LoginPage;
+import pages.MainPage;
 import pages.TestBase;
 
 public class CategoriesTestCase extends TestBase {
 
-//    private OpenMainPage openMainPage = new OpenMainPage(app.getWebDriver());
+    private MainPage mainPage = new MainPage(app.getWebDriver());
+    private LoginPage loginPage;
 
 
     @Test
     public void categoriesTest() {
 
-//        openMainPage.open();
-        app.getWebDriver().get("https://market.yandex.ru");
-//        Assert.assertTrue(openMainPage.atPage());
+        mainPage.open();
+        Assert.assertTrue(mainPage.atPage());
 
     }
 }
