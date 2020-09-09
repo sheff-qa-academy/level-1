@@ -10,7 +10,7 @@ public class TestBase {
 
     protected ApplicationManager app;
 
-    @BeforeClass
+    @BeforeSuite
     public void init() {
         app = new ApplicationManager();
 

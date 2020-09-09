@@ -16,6 +16,7 @@ public class ApplicationManager {
 
         driver = BrowserFactory.getInstance(PropertyLoader.getProperty("browser.name"), PropertyLoader.getProperty("platform.name"));
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
 
     }
 
