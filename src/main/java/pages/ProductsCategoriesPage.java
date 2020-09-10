@@ -10,6 +10,6 @@ public class ProductsCategoriesPage extends ElementsCollectionPage {
     }
 
     public void init() {
-        super.setElements(LocatorsMainPage.PRODUCTS_CATEGORIES);
+        super.setElementList(LocatorsMainPage.PRODUCTS_CATEGORIES);
     }
 }

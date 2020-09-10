@@ -10,6 +10,6 @@ public class PopularCategoriesPage extends ElementsCollectionPage {
     }
 
     public void init() {
-        super.setElements(LocatorsMainPage.POPULAR_CATEGORIES);
+        super.setElementList(LocatorsMainPage.POPULAR_CATEGORIES);
     }
 }

@@ -10,7 +10,7 @@ public class CheckCollectionAttribute {
 
     private String result = "";
 
-    public boolean isCollectionsAttributeEquals(List<WebElement> elementsList, String attributeOfElements, List<String[]> string) {
+    public boolean isCollectionsAttributeEquals(List<String> elementsList, List<String[]> string) {
 
         List<String> list = new ArrayList<>();
         int count = 0;
@@ -26,10 +26,10 @@ public class CheckCollectionAttribute {
         StringBuilder resultBuilder = new StringBuilder(result);
         for (int i = 0; i < elementsList.size();) {
 
-            if (list.get(i).equalsIgnoreCase(elementsList.get(i).getAttribute(attributeOfElements))) {
+            if (list.get(i).equalsIgnoreCase(elementsList.get(i))) {
                 i++;
             } else {
-                resultBuilder.append(" ").append(list.get(i)).append(" : ").append(elementsList.get(i).getAttribute(attributeOfElements)).append(".");
+                resultBuilder.append(" ").append(list.get(i)).append(" : ").append(elementsList.get(i)).append(".");
                 count++;
                 i++;
             }

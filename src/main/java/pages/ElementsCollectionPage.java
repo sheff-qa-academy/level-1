@@ -9,7 +9,7 @@ import java.util.List;
 
 public abstract class ElementsCollectionPage extends BasePage {
 
-    private List<WebElement> elements;
+    private List<WebElement> elementList;
     private List<WebElement> displayedElements = new ArrayList<>();
     private int size = 0;
 
@@ -17,31 +17,31 @@ public abstract class ElementsCollectionPage extends BasePage {
         this.driver = driver;
     }
 
-    public void setElements(String path) {
-        elements = driver.findElements(By.xpath(path));
-        size = elements.size();
+    public void setElementList(String path) {
+        elementList = driver.findElements(By.xpath(path));
+        size = elementList.size();
 
     }
 
     public List<WebElement> getDisplayedElements() {
 
-        for(int i = 0; i < elements.size(); i++) {
-            if (elements.get(i).isDisplayed())
-                displayedElements.add(elements.get(i));
+        for(int i = 0; i < elementList.size(); i++) {
+            if (elementList.get(i).isDisplayed())
+                displayedElements.add(elementList.get(i));
         }
 
         return displayedElements;
     }
 
     public List<WebElement> getAllElements() {
-        return elements;
+        return elementList;
     }
 
     public WebElement getRandomDisplayedElement() {
 
-        for(int i = 0; i < elements.size(); i++) {
-            if (elements.get(i).isDisplayed())
-                displayedElements.add(elements.get(i));
+        for(int i = 0; i < elementList.size(); i++) {
+            if (elementList.get(i).isDisplayed())
+                displayedElements.add(elementList.get(i));
         }
 
         return displayedElements.get((int) (Math.random() * displayedElements.size() - 1));
@@ -49,15 +49,24 @@ public abstract class ElementsCollectionPage extends BasePage {
 
     public WebElement getRandomElement() {
 
-        return elements.get((int) (Math.random() * elements.size()));
+        return elementList.get((int) (Math.random() * elementList.size()));
     }
 
     public String getAttribute(String attribute, int index) {
-        return elements.get(index).getAttribute(attribute);
+        return elementList.get(index).getAttribute(attribute);
+    }
+
+    public ArrayList<String> getAllElementsAtribute (String attribute) {
+
+        ArrayList<String> list = new ArrayList<>(elementList.size());
+        for (WebElement elements : elementList) {
+            list.add(elements.getAttribute(attribute));
+        }
+        return  list;
     }
 
     public WebElement getElement(int index) {
-        return elements.get(index);
+        return elementList.get(index);
     }
 
     public int getSize() {
