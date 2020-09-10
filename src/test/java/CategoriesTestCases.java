@@ -1,4 +1,5 @@
 import checks.CheckAuthorization;
+import checks.CheckCollectionAttribute;
 import locators.LocatorsMainPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -20,6 +21,7 @@ public class CategoriesTestCases extends TestBase {
     private LoginPage loginPage;
     private LogOutPage logOutPage;
     private CheckAuthorization checkAuthorization;
+    private CheckCollectionAttribute checkCollectionAttribute;
     private PopularCategoriesPage popularCategoriesPage;
     private ProductsCatalogPage productsCatalogPage;
     private ProductsCategoriesPage productsCategoriesPage;
@@ -38,6 +40,7 @@ public class CategoriesTestCases extends TestBase {
         loginPage = new LoginPage(app.getWebDriver());
         logOutPage = new LogOutPage(app.getWebDriver());
         checkAuthorization = new CheckAuthorization(app.getWebDriver());
+        checkCollectionAttribute = new CheckCollectionAttribute();
         popularCategoriesPage = new PopularCategoriesPage(app.getWebDriver());
         productsCatalogPage = new ProductsCatalogPage(app.getWebDriver());
         productsCategoriesPage = new ProductsCategoriesPage(app.getWebDriver());
@@ -72,6 +75,7 @@ public class CategoriesTestCases extends TestBase {
         assertTrue(mainPage.atPage(), "This is not the main page");
 
         popularCategoriesPage.init();
+
         assertTrue(popularCategoriesPage.getSize() > 0, "Popular Categories elements collection not found");
 
         element = popularCategoriesPage.getRandomDisplayedElement();
@@ -91,8 +95,9 @@ public class CategoriesTestCases extends TestBase {
 
         CSVRecorder.writeToCSV(productsCategoriesPage.getAllElements(), "textContent", "data.csv");
 
-
         logOutPage.logOut();
         assertTrue(checkAuthorization.isButtonLoginDisplayd(), "User is not logged in");
+
+        assertTrue(checkCollectionAttribute.isCollectionsAttributeEquals(popularCategoriesPage.getAllElements(), "textContent", CSVRecorder.readFromCSV("data.csv")), checkCollectionAttribute.getResult());
     }
 }
