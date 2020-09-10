@@ -2,9 +2,8 @@ package pages;
 
 import locators.LocatorsMainPage;
 import org.openqa.selenium.WebDriver;
-import utils.ElementsCollection;
 
-public class PopularCategoriesPage extends ElementsCollection {
+public class PopularCategoriesPage extends ElementsCollectionPage {
 
     public PopularCategoriesPage(WebDriver driver) {
         super(driver);

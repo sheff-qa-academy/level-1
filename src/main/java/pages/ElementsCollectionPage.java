@@ -1,4 +1,4 @@
-package utils;
+package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -7,15 +7,13 @@ import org.openqa.selenium.WebElement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ElementsCollection {
-
-    private WebDriver driver;
+public abstract class ElementsCollectionPage extends BasePage {
 
     private List<WebElement> elements;
     private List<WebElement> displayedElements = new ArrayList<>();
     private int size = 0;
 
-    public ElementsCollection(WebDriver driver) {
+    public ElementsCollectionPage(WebDriver driver) {
         this.driver = driver;
     }
 

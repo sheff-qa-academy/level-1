@@ -44,8 +44,6 @@ public class Main {
 
         driverChrome.get("https://market.yandex.ru");
 
-        //
-
         if (driverChrome.findElements(By.xpath("//span[.='Каталог товаров']/../parent::button")).size() > 0) {
             WebElement ele = driverChrome.findElement(By.xpath("//span[.='Каталог товаров']/../parent::button"));
             JavascriptExecutor executor = (JavascriptExecutor) driverChrome;
@@ -53,6 +51,8 @@ public class Main {
         } else {
             driverChrome.findElement(By.xpath("/html/body/div[2]/div[3]/noindex/div/div/div[2]/div")).click();
         }
+
+        //
 
         List<WebElement> allCategories =
                 driverChrome.findElements(By.xpath("//div[@data-zone-name='category-link']/button/a/span"));

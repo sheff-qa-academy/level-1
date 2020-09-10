@@ -1,7 +1,11 @@
 package pages;
 
+import locators.LocatorsMainPage;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
+
 import java.util.ArrayList;
 
 public class LoginPage extends BasePage {
@@ -13,17 +17,17 @@ public class LoginPage extends BasePage {
     }
 
     public void open() {
-        driver.findElement(By.xpath("//span[.='Войти']")).click();
-        handles = new ArrayList<String>(driver.getWindowHandles());
+        driver.findElement(By.xpath(LocatorsMainPage.LOG_IN_BUTTON)).click();
+        handles = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(handles.get(1));
     }
 
     public void enterLogin(String login) {
-        driver.findElement(By.cssSelector("#passp-field-login")).sendKeys(login);
-        driver.findElement(By.xpath("//button[@data-t='button:action']")).click();
+        driver.findElement(By.cssSelector(LocatorsMainPage.INPUT_FIELD_LOGIN)).sendKeys(login);
+        driver.findElement(By.cssSelector(LocatorsMainPage.INPUT_FIELD_LOGIN)).sendKeys(Keys.ENTER);
     }
     public void enterPassword(String password) {
-        driver.findElement(By.xpath("//input[@name='passwd']")).sendKeys(password);
+        driver.findElement(By.cssSelector(LocatorsMainPage.INPUT_FIELD_PASSWORD)).sendKeys(password);
     }
 
     public boolean atPage() {
@@ -35,7 +39,7 @@ public class LoginPage extends BasePage {
     }
 
     public void submit() {
-        driver.findElement(By.xpath("//input[@name='passwd']")).submit();
+        driver.findElement(By.cssSelector(LocatorsMainPage.INPUT_FIELD_PASSWORD)).submit();
         driver.switchTo().window(handles.get(0));
         try {
             Thread.sleep(5000);
